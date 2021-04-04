@@ -7,7 +7,6 @@ import useEffectUpdate from "../../hooks/useEffectUpdate";
 export default function TextForm() {
   const [text, setText] = useState("");
   const [textData, setTextData] = useState(null);
-  const [allTextData, setAllTextData] = useState([]);
 
   useEffectUpdate(() => {}, [textData]);
 
