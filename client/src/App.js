@@ -1,5 +1,5 @@
 import "./App.scss";
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import { AppContextProvider } from "./context/AppContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
