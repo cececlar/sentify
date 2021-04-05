@@ -2,7 +2,23 @@
 
 Verbalyze is an application that integrates the Google Cloud Natural Language API to provide text-based linguistic data analysis. 
 
-Text input is processed by the Natural Language API and data points are provided for the sentiment and the magnitude of sentiment expressed in the text. 
+
+## Setup and Installation 
+
+- `git clone` this repo 
+- `cd` into it 
+- `npm install` 
+- `cd client && npm install` 
+- `cd ..` 
+- `cp .env.sample .env`
+- Set the `GOOGLE_LANGUAGE_API` environment variable in your `.env` file to `https://language.googleapis.com/v1beta2/documents:annotateText?key=`
+- Visit the Google Cloud Natural Language API website. Sign up for the API and create an API key. Set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable in your `.env` file to your new API key. 
+- Set the `MONGODB_URL` environment variable in your `.env` file to a valid MongoDB URL.
+- `npm run dev` to run a local development server 
+
+## Description 
+
+This application processes text input by the Natural Language API and data points are provided for the sentiment and the magnitude of sentiment expressed in the text. 
 
 The **sentiment** score of a text is represented as a number between -1 and 1. A sentiment score between -1 and -0.25 is classified as negative, -0.24 to 0.25 is classified as neutral, and 0.26 to to 1 is considered positive. 
 
@@ -17,3 +33,13 @@ The Google Cloud Natural Language API offers developers a machine learning model
 - To use data gathered from the app to compare and contrast the sentiment and magnitude scores of similar text inputs across multiple languages. For example: if a user inputs *"Yesterday was a very bad day. I was sick."* in English, Spanish, and Chinese, are the scores similar? If so, what inferences can we draw regarding the Natural Language API's algorithmic design and machine learning model? If not, why not? Are languages inherently different in terms of being more positive, neutral, or negative, or in the frequency/extent to which emotion is expressed? Or are dissimilarities a potential result of biases in algorithmic design? In the case of the latter, how might we correct these biases?
 - To use the app to analyze stories from news outlets and compare/contrast the sentiment and magnitude scores of various news outlets domestically and globally. Based on data collected, are some news outlets more emotional/positive/negative/neutral than others? Are news outlets from certain countries more emotional/positive/negative/neutral than others? Does this data withstand scrutiny, or is it a result of algorithmic bias? What are the implications for audiences and citizens? How might we use this data to help individuals be more informed producers and consumers of media? 
 - To analyze the app's understanding of slang and other contextual nuances of language like idioms and sarcasm. To what extent can the Natural Language API accurately decode these linguistic choices? What does this reveal about cultural attitudes toward language more broadly? How might we improve the ability of natural language processing machine learning models and algorithms to process diverse speech patterns?
+
+## Technology Used 
+
+- Node.js 
+- React 
+- Express 
+- MongoDB 
+- Mongoose 
+- Material UI 
+- Nivo
