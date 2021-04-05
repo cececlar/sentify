@@ -1,6 +1,6 @@
 # Verbalyze
 
-Verbalyze is an application that integrates the Google Cloud Natural Language API to provide text-based linguistic data analysis. and visualization. 
+Verbalyze is an application that integrates the Google Cloud Natural Language API to provide text-based linguistic data analysis and visualization. 
 
 
 ## Setup and Installation 
