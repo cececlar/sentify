@@ -1,6 +1,6 @@
 # Verbalyze
 
-Verbalyze is an application that integrates the Google Cloud Natural Language API to provide text-based linguistic data analysis. 
+Verbalyze is an application that integrates the Google Cloud Natural Language API to provide text-based linguistic data analysis. and visualization. 
 
 
 ## Setup and Installation 
@@ -22,11 +22,11 @@ The Google Cloud Natural Language API offers developers a machine learning model
 
 This application processes text input by the Natural Language API and data points are provided for the sentiment and the magnitude of sentiment expressed in the text. 
 
-The **sentiment** score of a text is represented as a number between -1 and 1. A sentiment score between -1 and -0.25 is classified as negative, -0.24 to 0.25 is classified as neutral, and 0.26 to to 1 is considered positive. 
+The **sentiment score** of a text is represented as a number between -1 and 1. A sentiment score between -1 and -0.25 is classified as negative, -0.24 to 0.25 is classified as neutral, and 0.26 to to 1 is considered positive. 
 
-The **magnitude** score of a text is represented as a number between 0 and +inf. The magnitude score represents the extent to which emotional language (whether positive or negative) is present in a text. A higher magnitude score indicates more frequent expressions of emotion. 
+The **magnitude score** of a text is represented as a number between 0 and +inf. The magnitude score represents the extent to which emotional language (whether positive or negative) is present in a text. A higher magnitude score indicates more frequent expressions of emotion. 
 
-A text with a **sentiment score** falling within the neutral range could indicate either that the text is low-emotion, or that there are both positive and negative emotions expressed within the text. In such cases, the **magnitude** score can be used to assess the extent to which emotional language is present in a text. For example, it can be inferred that a text with a **sentiment score** of 0 and a **magnitude score** of 0.1 is truly neutral in tone, while a text with a **sentiment score** of 0 and a **magnitude score** of 3.6 contains frequent instances of emotional language, both positive and negative. 
+A text with a **sentiment score** falling within the neutral range could indicate either that the text is low-emotion, or that there are both positive and negative emotions expressed within the text. In such cases, the **magnitude score** can be used to assess the extent to which emotional language is present in a text. For example, it can be inferred that a text with a **sentiment score** of 0 and a **magnitude score** of 0.1 is truly neutral in tone, while a text with a **sentiment score** of 0 and a **magnitude score** of 3.6 contains frequent instances of emotional language, both positive and negative. 
 
 ## The goals of this project are: 
 
