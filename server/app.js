@@ -13,4 +13,6 @@ app.use("/api/verbalyze", languageAPIRoutes);
 
 app.use("/api/entries", entryRoutes);
 
+//TODO: Add error handling middleware and clean up redundant error handling in controller functions.
+
 module.exports = app;

@@ -47,7 +47,7 @@ export default function TextData({ userInput, data }) {
               xFormat={function (e) {
                 return e;
               }}
-              yScale={{ type: "linear", min: -1, max: 1 }}
+              yScale={{ type: "linear", min: -1, max: 5 }}
               yFormat={function (e) {
                 return e;
               }}
