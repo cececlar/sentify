@@ -25,6 +25,6 @@ exports.verbalyzeUserInput = async (req, res) => {
     const newEntry = await createEntry(text, textData.data);
     res.json(newEntry);
   } catch (e) {
-    res.status(500).json({ error: e.toString() });
+    res.status(500).json({ error: e.message });
   }
 };

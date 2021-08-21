@@ -25,3 +25,16 @@ exports.getAllEntries = async (req, res) => {
     res.status(500).json({ error: e.toString() });
   }
 };
+
+exports.getMaxMagnitude = async (req, res) => {
+  try {
+    const entries = await Entry.find();
+    const max = Math.max(
+      ...entries.map((o) => o.documentSentiment.magnitude),
+      0
+    );
+    res.json(max);
+  } catch (e) {
+    res.status(500).json({ error: e.toString() });
+  }
+};

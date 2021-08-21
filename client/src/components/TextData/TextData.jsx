@@ -1,27 +1,52 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ResponsiveScatterPlot } from "@nivo/scatterplot";
 import "./TextData.scss";
 import { Paper, Box, Typography } from "@material-ui/core";
+import axios from "axios";
+import { AppContext } from "../../context/AppContext";
 
 export default function TextData({ userInput, data }) {
   const [bulletData, setBulletData] = useState([]);
-  console.log(userInput);
-  console.log(data);
+  const [maxMagnitude, setMaxMagnitude] = useState(0);
+  const { allEntries, setAllEntries } = useContext(AppContext);
 
-  const convertedData = data.map((item) => {
+  const singleEntryData = data.map((item) => {
     return {
       id: `${userInput}`,
       data: [
         {
-          x: data[0].documentSentiment.score,
-          y: data[0].documentSentiment.magnitude,
+          x: item.documentSentiment.score,
+          y: item.documentSentiment.magnitude,
         },
       ],
     };
   });
 
+  const getMaxMagnitude = async () => {
+    const max = await axios.get("/api/entries/maxmagnitude");
+    setMaxMagnitude(max.data);
+  };
+
   useEffect(() => {
-    setBulletData(convertedData);
+    setBulletData(singleEntryData);
+    getMaxMagnitude();
+
+    // let allEntriesData = allEntries.map((item) => {
+    //   return {
+    //     id: `${item.text}`,
+    //     data: [
+    //       {
+    //         x: item.documentSentiment.score,
+    //         y: item.documentSentiment.magnitude,
+    //       },
+    //     ],
+    //   };
+    // });
+
+    // allEntriesData = allEntries.push(singleEntryData);
+
+    // setAllEntries(allEntriesData);
+    console.log("hello from useEffect");
   }, [data]);
 
   return (
@@ -42,12 +67,12 @@ export default function TextData({ userInput, data }) {
             {" "}
             <ResponsiveScatterPlot
               data={bulletData}
-              margin={{ right: 140, bottom: 70, left: 90 }}
+              margin={{ right: 140, bottom: 70, left: 90, top: 10 }}
               xScale={{ type: "linear", min: -1, max: 1 }}
               xFormat={function (e) {
                 return e;
               }}
-              yScale={{ type: "linear", min: -1, max: 5 }}
+              yScale={{ type: "linear", min: 0, max: maxMagnitude }}
               yFormat={function (e) {
                 return e;
               }}

@@ -17,6 +17,14 @@ export default function Nav() {
         <Link underline="none" component={RouterDomLink} to="/" color="inherit">
           <Typography variant="h6">Verbalyze</Typography>
         </Link>
+        <Link
+          underline="none"
+          component={RouterDomLink}
+          to="/sentiment"
+          color="inherit"
+        >
+          <Typography variant="p">Sentiment</Typography>
+        </Link>
         <IconButton edge="end" color="inherit" aria-label="menu">
           <Icon>menu</Icon>
         </IconButton>

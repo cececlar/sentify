@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FormLabel, TextField, Button, Box } from "@material-ui/core";
 import axios from "axios";
 import TextData from "../TextData/TextData";
 import useEffectUpdate from "../../hooks/useEffectUpdate";
+import { AppContext } from "../../context/AppContext";
 
 export default function TextForm() {
   const [text, setText] = useState("");
   const [textData, setTextData] = useState(null);
+  const { allEntries, setAllEntries } = useContext(AppContext);
 
-  useEffectUpdate(() => {}, [textData]);
+  // useEffectUpdate(() => {
+  //   console.log(textData);
+  // }, [textData]);
 
   const verbalyzeText = async (string) => {
     const apiData = await axios.post("/api/verbalyze", {
