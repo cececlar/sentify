@@ -14,20 +14,31 @@ export default function Nav() {
   return (
     <AppBar position="static">
       <Toolbar className="toolbar">
-        <Link underline="none" component={RouterDomLink} to="/" color="inherit">
-          <Typography variant="h6">Verbalyze</Typography>
+        <Typography className="navLink" variant="h6">
+          Verbalyze
+        </Typography>
+
+        <Link
+          underline="none"
+          component={RouterDomLink}
+          to="/"
+          color="inherit"
+          className="navLink"
+        >
+          <Typography variant="subtitle1">Newsfeed</Typography>
         </Link>
         <Link
           underline="none"
           component={RouterDomLink}
           to="/sentiment"
           color="inherit"
+          className="navLink"
         >
-          <Typography variant="p">Sentiment</Typography>
+          <Typography variant="subtitle1">Sentiment</Typography>
         </Link>
-        <IconButton edge="end" color="inherit" aria-label="menu">
+        {/* <IconButton edge="end" color="inherit" aria-label="menu">
           <Icon>menu</Icon>
-        </IconButton>
+        </IconButton> */}
       </Toolbar>
     </AppBar>
   );

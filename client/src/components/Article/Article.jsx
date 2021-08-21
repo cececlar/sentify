@@ -19,6 +19,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+    margin: "1rem",
   },
   media: {
     height: 0,
@@ -97,7 +98,9 @@ export default function Article({
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>{body}</Typography>
+          <Typography style={{ whiteSpace: "pre-line" }} paragraph>
+            {body}
+          </Typography>
         </CardContent>
       </Collapse>
     </Card>
