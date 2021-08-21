@@ -13,7 +13,7 @@ exports.createEntry = async (text, textData) => {
     await entry.save();
     return entry;
   } catch (e) {
-    return e;
+    res.json({ error: e.message });
   }
 };
 
@@ -22,7 +22,7 @@ exports.getAllEntries = async (req, res) => {
     const entries = await Entry.find();
     res.json(entries);
   } catch (e) {
-    res.status(500).json({ error: e.toString() });
+    res.status(500).json({ error: e.message });
   }
 };
 

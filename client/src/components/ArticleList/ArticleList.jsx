@@ -14,6 +14,7 @@ export default function ArticleList({ articles }) {
             url={article.url}
             date={article.datePublished}
             image={article.image.url}
+            source={article.provider.name}
           />
         );
       })}

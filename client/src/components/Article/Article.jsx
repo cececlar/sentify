@@ -69,7 +69,7 @@ export default function Article({
           </IconButton>
         }
         title={title}
-        subheader="September 14, 2016"
+        subheader={date}
       />
       <CardMedia className={classes.media} image={image} title="Paella dish" />
       <CardContent>

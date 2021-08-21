@@ -3,14 +3,17 @@ import ArticleSearch from "../components/ArticleSearch/ArticleSearch";
 import ArticleList from "../components/ArticleList/ArticleList";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Container } from "@material-ui/core";
 
 export default function Newsfeed() {
   const [newsArticles, setNewsArticles] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const searchNewsByTerm = async () => {
+    console.log("inside searchNewsByTerm");
     try {
       const news = await axios.post("/api/news", {
-        searchQuery: "taylor swift",
+        searchQuery: searchTerm,
       });
       console.log(news.data.value);
       setNewsArticles(news.data.value);
@@ -19,13 +22,23 @@ export default function Newsfeed() {
     }
   };
 
+  const handleSearch = (string) => {
+    console.log("inside handleSearch");
+    setSearchTerm(string);
+  };
+
   useEffect(() => {
-    searchNewsByTerm();
-  }, []);
+    console.log("inside useEffect");
+    if (searchTerm) {
+      searchNewsByTerm();
+    }
+  }, [searchTerm]);
 
   return (
     <div>
-      <ArticleSearch />
+      <Container>
+        <ArticleSearch handleSearch={handleSearch} />
+      </Container>
       <ArticleList articles={newsArticles} />
     </div>
   );
