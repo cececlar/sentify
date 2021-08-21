@@ -15,11 +15,15 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import { FormHelperText } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: "60%",
     margin: "1rem",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   media: {
     height: 0,
