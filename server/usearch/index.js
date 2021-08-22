@@ -5,7 +5,7 @@ const NEWS_API = process.env.NEWS_API,
 exports.searchNews = async (req, res) => {
   try {
     const { searchQuery } = req.body;
-    const newsArticles = await axios.get(
+    let newsArticles = await axios.get(
       `${NEWS_API}?q=${searchQuery}&pageNumber=1&pageSize=20&autoCorrect=true&withThumbnails=true`,
       {
         headers: {

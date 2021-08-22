@@ -52,6 +52,8 @@ export default function Article({
   url,
   date,
   image,
+  sentiment,
+  magnitude,
 }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -76,11 +78,16 @@ export default function Article({
         title={title}
         subheader={date}
       />
+
       <CardMedia className={classes.media} image={image} title="Paella dish" />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           {description}
         </Typography>
+        <Typography variant="h6" className="scores">
+          Sentiment Score: {sentiment}
+        </Typography>
+        <Typography variant="h6">Magnitude Score: {magnitude}</Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">

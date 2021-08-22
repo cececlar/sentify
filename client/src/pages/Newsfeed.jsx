@@ -28,12 +28,18 @@ export default function Newsfeed() {
     // setSearchTerm(string);
   };
 
+  const verbalyzeNews = async () => {
+    // console.log(newsArticles);
+    const newsWithSentiment = await axios.post("/api/news/verbalyzenews", {
+      news: newsArticles,
+    });
+    setNewsArticles(newsWithSentiment.data);
+  };
+
   useEffect(() => {
     console.log("inside useEffect");
-    // if (searchTerm) {
-    //   searchNewsByTerm();
-    // }
-  }, [searchTerm]);
+    // verbalyzeNews();
+  }, []);
 
   return (
     <div>
@@ -41,7 +47,7 @@ export default function Newsfeed() {
         <ArticleSearch handleSearch={handleSearch} />
       </Container>
       <Container>
-        <ArticleList articles={newsArticles} />
+        {newsArticles && <ArticleList articles={newsArticles} />}
       </Container>
     </div>
   );

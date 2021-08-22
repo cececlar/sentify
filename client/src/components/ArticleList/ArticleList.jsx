@@ -9,16 +9,20 @@ export default function ArticleList({ articles }) {
       <section className="articles">
         {articles.map((article) => {
           return (
-            <Article
-              key={article.id}
-              title={article.title}
-              description={article.description}
-              body={article.body}
-              url={article.url}
-              date={article.datePublished}
-              image={article.image.url}
-              source={article.provider.name}
-            />
+            article.documentSentiment && (
+              <Article
+                key={article.id}
+                title={article.title}
+                description={article.description}
+                body={article.body}
+                url={article.url}
+                date={article.datePublished}
+                image={article.image.url}
+                source={article.provider.name}
+                sentiment={article.documentSentiment.score}
+                magnitude={article.documentSentiment.magnitude}
+              />
+            )
           );
         })}
       </section>
