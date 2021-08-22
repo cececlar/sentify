@@ -83,13 +83,13 @@ export default function Article({
 
       <CardMedia className={classes.media} image={image} title="Paella dish" />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {description}
-        </Typography>
         <Typography variant="h6" className="scores">
           Sentiment Score: {sentiment}
         </Typography>
         <Typography variant="h6">Magnitude Score: {magnitude}</Typography>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {description}
+        </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">

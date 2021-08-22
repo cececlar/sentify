@@ -8,7 +8,7 @@ import newsData from "../sampleData/articlesData.json";
 
 export default function Newsfeed() {
   const [newsArticles, setNewsArticles] = useState(newsData);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("trending");
 
   const searchNewsByTerm = async () => {
     console.log("inside searchNewsByTerm");
@@ -46,6 +46,7 @@ export default function Newsfeed() {
         <ArticleSearch handleSearch={handleSearch} />
       </Container>
       <Container>
+        <h1 className="App-header">Showing results for "{searchTerm}"</h1>
         {newsArticles && <ArticleList articles={newsArticles} />}
       </Container>
     </div>
