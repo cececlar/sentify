@@ -12,7 +12,6 @@ const AppContextProvider = ({ children }) => {
       .get("/api/entries")
       .then(({ data }) => {
         setAllEntries(data);
-        console.log(data);
       })
       .catch((error) => {
         console.log(error);

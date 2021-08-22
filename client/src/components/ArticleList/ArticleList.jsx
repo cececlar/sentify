@@ -3,7 +3,6 @@ import Article from "../Article/Article";
 import "./ArticleList.scss";
 
 export default function ArticleList({ articles }) {
-  console.log(articles);
   return (
     <>
       <section className="articles">
