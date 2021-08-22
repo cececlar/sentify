@@ -29,7 +29,6 @@ export default function Newsfeed() {
   };
 
   const verbalyzeNews = async () => {
-    // console.log(newsArticles);
     const newsWithSentiment = await axios.post("/api/news/verbalyzenews", {
       news: newsArticles,
     });

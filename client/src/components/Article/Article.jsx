@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Card from "@material-ui/core/Card";
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     transform: "rotate(180deg)",
   },
   avatar: {
-    backgroundColor: red[500],
+    fontSize: "3rem",
   },
 }));
 
@@ -54,9 +54,11 @@ export default function Article({
   image,
   sentiment,
   magnitude,
+  source,
 }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  const [emoji, setEmoji] = useState("😐");
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -67,7 +69,7 @@ export default function Article({
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            R
+            {emoji}
           </Avatar>
         }
         action={
