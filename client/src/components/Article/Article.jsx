@@ -58,7 +58,7 @@ export default function Article({
 }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const [emoji, setEmoji] = useState("");
+  const [emoji, setEmoji] = useState("😐");
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -74,7 +74,7 @@ export default function Article({
         setEmoji("😒");
       }
     }
-  }, [sentiment]);
+  }, [sentiment, magnitude]);
 
   return (
     <Card className={classes.root}>
