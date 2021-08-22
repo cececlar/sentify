@@ -19,7 +19,7 @@ import { FormHelperText } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: "60%",
+    width: "60%",
     margin: "1rem",
     display: "flex",
     flexDirection: "column",
@@ -66,9 +66,9 @@ export default function Article({
 
   useEffect(() => {
     if (sentiment && magnitude) {
-      if (sentiment >= 0.3) {
+      if (sentiment > 0.1) {
         setEmoji("😌");
-      } else if (!sentiment || sentiment >= -0.3) {
+      } else if (!sentiment || sentiment >= -0.1) {
         setEmoji("😐");
       } else {
         setEmoji("😒");
@@ -123,9 +123,7 @@ export default function Article({
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography style={{ whiteSpace: "pre-line" }} paragraph>
-            {body}
-          </Typography>
+          <Typography paragraph>{body}</Typography>
         </CardContent>
       </Collapse>
     </Card>

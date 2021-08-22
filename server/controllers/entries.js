@@ -1,6 +1,7 @@
-const Entry = require("../db/models/entry");
+const Entry = require("../db/models/entry"),
+  { singlePostRequest } = require("../apiCalls/language");
 
-exports.createEntry = async (text, textData) => {
+createEntry = async (text, textData) => {
   try {
     const entryObject = {
       text: text,
@@ -13,7 +14,20 @@ exports.createEntry = async (text, textData) => {
     await entry.save();
     return entry;
   } catch (e) {
-    res.json({ error: e.message });
+    return e.message;
+  }
+};
+
+exports.verbalyzeEntry = async (req, res) => {
+  try {
+    const { text } = req.body;
+    const textData = await singlePostRequest(text);
+    console.log("inside verbalyzeEntry");
+    console.log(textData);
+    const newEntry = await createEntry(text, textData);
+    res.json(newEntry);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
   }
 };
 

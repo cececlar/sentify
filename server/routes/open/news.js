@@ -1,6 +1,6 @@
 const router = require("express").Router(),
-  { searchNews } = require("../../../usearch/index"),
-  { verbalyzeNews } = require("../../../verbalyzer/index");
+  { searchNews } = require("../../apiCalls/news"),
+  { verbalyzeNews } = require("../../apiCalls/language");
 
 router.post("/", searchNews);
 router.post("/verbalyzenews", verbalyzeNews);
